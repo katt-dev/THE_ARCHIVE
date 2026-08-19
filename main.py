@@ -1,4 +1,4 @@
-from engine.game import Game
+from engine.games import Game
 from content.init import load_content
 from content.personal_horror import run_pre_game_setup
 
