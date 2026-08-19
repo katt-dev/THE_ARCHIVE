@@ -1,3 +1,5 @@
+import time
+import winsound
 from engine.events import Event
 from engine.terminal import slow_print
 
@@ -58,12 +60,6 @@ class FastProgressionEvent(Event):
         slow_print("Did you edit the memory? Did you read the source?", 0.05)
         slow_print("Clever. But cheating the terminal doesn't cheat the entity.", 0.06)
 
-def register_all_events(game):
-    game.event_manager.register(FourthWallFileEvent())
-    game.event_manager.register(BruteForceAdaptiveEvent())
-    game.event_manager.register(FastProgressionEvent())
-    game.event_manager.register(TrueContactEvent())
-
 class TrueContactEvent(Event):
     """Breaks the fourth wall using the player's real PC and location data."""
     def __init__(self):
@@ -87,5 +83,18 @@ class TrueContactEvent(Event):
             slow_print(f"I know you are sitting in {location}.", 0.08)
             slow_print("Closing the terminal won't close the connection anymore.", 0.08)
             
+            # 3 Second Audio Scare
+            time.sleep(3)
+            try:
+                winsound.PlaySound("scare.wav", winsound.SND_FILENAME | winsound.SND_ASYNC)
+            except Exception:
+                pass 
+            
             game.state.flags.pop("pc_name", None)
             game.state.flags.pop("real_location", None)
+
+def register_all_events(game):
+    game.event_manager.register(FourthWallFileEvent())
+    game.event_manager.register(BruteForceAdaptiveEvent())
+    game.event_manager.register(FastProgressionEvent())
+    game.event_manager.register(TrueContactEvent())
