@@ -1,4 +1,4 @@
-from engine.event import Event
+from engine.events import Event
 from engine.terminal import slow_print
 
 class FourthWallFileEvent(Event):
