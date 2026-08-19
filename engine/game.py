@@ -4,7 +4,7 @@ import traceback
 from config import VERSION
 from engine.state import GameState
 from engine.commands import COMMANDS
-from engine.event import EventManager
+from engine.events import EventManager
 
 class Game:
     def __init__(self):
