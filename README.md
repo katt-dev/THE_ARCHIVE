@@ -11,3 +11,5 @@ You are the next investigator.
 Run `start.bat` or `python main.py` to initialize the system.
 
 The terminal is listening. Do not trust what you find.
+---
+*Made with 💜 by Katt-Dev*
